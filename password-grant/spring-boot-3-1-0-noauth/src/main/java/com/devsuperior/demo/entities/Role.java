@@ -2,7 +2,9 @@ package com.devsuperior.demo.entities;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name="tb_role")
@@ -11,6 +13,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String authority;
+
 
     public Role(Long id, String authority) {
         this.id = id;
