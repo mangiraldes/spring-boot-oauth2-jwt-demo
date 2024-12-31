@@ -72,6 +72,21 @@ public class User {
         this.password = password;
     }
 
+    public void addRole(Role role){
+        roles.add(role);
+    }
+
+    public boolean hasRole(String authority){
+
+
+        for(Role role:roles){
+            boolean ret = role.getAuthority().equals(authority);
+            if (ret) return ret;
+        }
+         return false;
+
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
