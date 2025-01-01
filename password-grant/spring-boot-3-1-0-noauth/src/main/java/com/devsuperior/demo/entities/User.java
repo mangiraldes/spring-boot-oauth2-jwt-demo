@@ -3,6 +3,7 @@ package com.devsuperior.demo.entities;
 import java.time.LocalDate;
 import java.util.*;
 
+import com.devsuperior.demo.projections.UserDetailsProjection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import jakarta.persistence.*;
@@ -28,6 +29,14 @@ public class User implements UserDetails{
 
     public Set<Role> getRoles() {
         return roles;
+    }
+
+    public User(UserDetailsProjection userDetailsProjection){
+
+        this.setEmail(userDetailsProjection.getAuthority());
+        this.setName(userDetailsProjection.getUsername());
+        this.setPassword(userDetailsProjection.getPassword());
+
     }
 
     public User() {
